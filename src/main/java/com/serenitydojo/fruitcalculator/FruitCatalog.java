@@ -14,7 +14,7 @@ public class FruitCatalog {
 
     public double costOf(Fruit fruit) {
         if (!fruitPrices.containsKey(fruit)){
-            throw new FruitUnavailableException();
+            throw new FruitUnavailableException(fruit.name() + "currently unavailable");
         }
         return fruitPrices.get(Apple);
     }

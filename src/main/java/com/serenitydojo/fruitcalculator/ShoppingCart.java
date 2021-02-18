@@ -18,6 +18,16 @@ public class ShoppingCart {
 
 
     public double getTotalPrice() {
-        return items.stream().mapToDouble(ShopingCartItems::getItemCost).sum();
+        List<Double> itemPrices = new ArrayList<>();
+        for (ShopingCartItems item : items){
+            itemPrices.add(item.getItemCost());
+        }
+        double sum = 0.0;
+        for (double itemCost : itemPrices){
+            sum = sum +itemCost;
+        }
+        //using java 8 the below method
+        //return items.stream().mapToDouble(ShopingCartItems::getItemCost).sum();
+        return sum;
     }
 }
